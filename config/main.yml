@@ -2,7 +2,7 @@
 
 logging:
   level: info # How much logging: debug, info, warning, error, critical
-  verbose: true # Add timestamps & module names to logs
+  verbose: false # Add timestamps & module names to logs
   log_files: false # Should we write log files to a file
 
 web:
@@ -19,7 +19,7 @@ platforms:
 
 destinations:
   csv:
-    enable: true
+    enable: false
     filename: "output.csv"
   postgres:
     enable: false
