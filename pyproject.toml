@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "donation-watch"
+name = "sunbeam"
 version = "0.1.0"
-description = ""
+description = "Making donations public"
 authors = ["Bentley Hensel <bentleyhensel@gmail.com>"]
 license = "agpl-3.0"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
 pyyaml = "^6.0.1"
 flask = "^3.0.3"
 google-cloud-bigquery = "^3.20.1"
