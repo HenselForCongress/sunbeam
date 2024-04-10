@@ -1,0 +1,59 @@
+name: 🏗️📤 Build and publish 🐳 images
+
+on:
+  push:
+
+  workflow_dispatch:
+
+env:
+  GHCR_REGISTRY: ghcr.io
+  DOCKERHUB_REGISTRY: docker.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-push-image:
+    name: 🏗️📤 Build and push 🐳 image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: 👀📦 Checkout repository.
+        uses: actions/checkout@v4
+
+      - name: 🔑📦 Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.GHCR_REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🔑📦 Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.DOCKERHUB_REGISTRY }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: 🔍📝 Extract metadata (🏷️, 🏷️) for 🐳
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          flavor: |
+            latest=${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
+          images: |
+            ${{ env.GHCR_REGISTRY }}/${{ env.IMAGE_NAME }}
+            ${{ env.DOCKERHUB_REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=latest,priority=100,enable=${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
+            type=sha,enable=true,prefix={{branch}}-,suffix=,format=short,priority=300
+            type=raw,prefix={{branch}}-,value=latest,priority=200,enable=${{ github.ref != format('refs/heads/{0}', github.event.repository.default_branch) }}
+
+      - name: 🏗️📤 Build and push 🐳 image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

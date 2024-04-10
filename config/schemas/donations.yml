@@ -1,0 +1,89 @@
+# config/schemas/donations.yml
+- name: first_name
+  type: STRING
+  mode: REQUIRED
+  description: "First name of the donor."
+- name: last_name
+  type: STRING
+  mode: REQUIRED
+  description: "Last name of the donor."
+- name: transaction_id
+  type: STRING
+  mode: REQUIRED
+  description: "Unique identifier for the donation transaction."
+- name: address_1
+  type: STRING
+  mode: REQUIRED
+  description: "Primary address line for the donor."
+- name: address_2
+  type: STRING
+  mode: NULLABLE
+  description: "Secondary address line for the donor."
+- name: donation_fee_platform
+  type: FLOAT
+  mode: NULLABLE
+  description: "Platform fee associated with the donation."
+- name: donation_amount
+  type: FLOAT
+  mode: REQUIRED
+  description: "Amount donated."
+- name: donation_net
+  type: FLOAT
+  mode: REQUIRED
+  description: "Net amount received after fees."
+- name: donation_at
+  type: TIMESTAMP
+  mode: REQUIRED
+  description: "Timestamp when the donation was made."
+- name: address_city
+  type: STRING
+  mode: REQUIRED
+  description: "City of the donor's address."
+- name: address_state
+  type: STRING
+  mode: REQUIRED
+  description: "State of the donor's address."
+- name: address_zip
+  type: STRING
+  mode: REQUIRED
+  description: "Postal code of the donor's address."
+- name: address_country
+  type: STRING
+  mode: REQUIRED
+  description: "Country of the donor's address."
+- name: email
+  type: STRING
+  mode: NULLABLE
+  description: "Email address of the donor."
+- name: phone
+  type: STRING
+  mode: NULLABLE
+  description: "Phone number of the donor."
+- name: middle_name
+  type: STRING
+  mode: NULLABLE
+  description: "Middle name of the donor."
+- name: occupation
+  type: STRING
+  mode: REQUIRED
+  description: "Occupation of the donor."
+- name: employer
+  type: STRING
+  mode: REQUIRED
+  description: "Employer of the donor."
+- name: name_title
+  type: STRING
+  mode: NULLABLE
+  description: "Title of the donor."
+- name: name_suffix
+  type: STRING
+  mode: NULLABLE
+  description: "Suffix of the donor's name."
+- name: page_id
+  type: STRING
+  mode: REQUIRED
+  description: "Identifier for the page where the donation was made."
+- name: event
+  type: STRING
+  mode: REQUIRED
+  description: "Type of event."

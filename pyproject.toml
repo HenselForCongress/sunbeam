@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "donation-watch"
+version = "0.1.0"
+description = ""
+authors = ["Bentley Hensel <bentleyhensel@gmail.com>"]
+license = "agpl-3.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pyyaml = "^6.0.1"
+flask = "^3.0.3"
+google-cloud-bigquery = "^3.20.1"
+
+
+[tool.poetry.group.dev.dependencies]
+python-dotenv = "^1.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

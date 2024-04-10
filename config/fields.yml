@@ -1,0 +1,56 @@
+# config/fields.yml
+fields:
+  first_name:
+    anedot: "payload.first_name"
+    actblue: "donor.firstname"
+    winred:
+  last_name:
+    anedot: "payload.last_name"
+    actblue: "donor.lastname"
+    winred:
+  transaction_id:
+    anedot: "payload.donation.id"
+    actblue:
+    winred:
+  address_1:
+    anedot: "payload.address_line_1"
+    actblue:
+    winred:
+  address_2:
+    anedot: "payload.address_line_2"
+    actblue:
+    winred:
+  donation_fee_platform:
+    anedot: "payload.donation.fees.anedot_fees.amount"
+  donation_amount:
+    anedot: "payload.amount_in_dollars"
+  donation_net:
+    anedot: "payload.net_amount"
+  donation_at:
+    anedot: "payload.created_at"
+  address_city:
+    anedot: "payload.address_city"
+  address_state:
+    anedot: "payload.address_region"
+  address_zip:
+    anedot: "payload.address_postal_code"
+  address_country:
+    anedot: "payload.address_country"
+  email:
+    anedot: "payload.email"
+  phone:
+    anedot: "payload.phone"
+  middle_name:
+    anedot: "payload.middle_name"
+  occupation:
+    anedot: "payload.occupation"
+  employer:
+    anedot: "payload.employer_name"
+  name_title:
+    anedot: "payload.title"
+  name_suffix:
+    anedot: "payload.suffix"
+  page_id:
+    anedot: "payload.action_page_id"
+  event:
+    anedot: "event"

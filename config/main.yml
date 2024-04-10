@@ -1,0 +1,29 @@
+# config/main.yml
+
+logging:
+  level: info # How much logging: debug, info, warning, error, critical
+  verbose: true # Add timestamps & module names to logs
+  log_files: false # Should we write log files to a file
+
+web:
+  app_host: 0.0.0.0
+  app_port: 9090
+
+platforms:
+  anedot:
+    enable: true
+  actblue:
+    enable: false
+  winred:
+    enable: false
+
+destinations:
+  csv:
+    enable: true
+    filename: "output.csv"
+  postgres:
+    enable: false
+  bigquery:
+    enable: true
+    platform_name: anedot
+    # TODO Make platform names dynamic
