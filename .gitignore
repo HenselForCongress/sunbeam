@@ -164,3 +164,4 @@ scratch.*
 creds/*
 GOOGLE_APPLICATION_CREDENTIALS.json
 output.csv
+scratchy.sql
