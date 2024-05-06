@@ -1,5 +1,5 @@
 # hydrogen/yeeter.py
-from .destinations import DataDestination, CSVDestination, BigQueryDestination
+from .destinations import DataDestination, CSVDestination, BigQueryDestination, PostgresDestination
 from .utils import load_yaml_config, logger
 import os
 
@@ -18,9 +18,14 @@ class DataDispatcher:
         # BigQuery destination
         bigquery_config = config.get('destinations', {}).get('bigquery', {})
         if bigquery_config.get('enable'):
-            platform_name = bigquery_config.get('platform_name', 'default') # TODO Dynamic setting...
+            platform_name = bigquery_config.get('platform_name', 'default')  # TODO Dynamic setting...
             destinations.append(BigQueryDestination(platform_name))
             logger.info(f"BigQuery destination enabled for platform: {platform_name}")
+
+        # PostgreSQL Destination
+        if os.getenv("POSTGRES_ENABLE", "false").lower() == "true":
+            destinations.append(PostgresDestination())
+            logger.info("PostgreSQL destination enabled.")
 
         if not destinations:
             logger.warning("No data destinations are enabled in configuration.")

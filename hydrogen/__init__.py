@@ -29,6 +29,7 @@ def config_me():
 
 
 
+
     # Now that environment variables are set, configure the logger
     configure_logger()
 

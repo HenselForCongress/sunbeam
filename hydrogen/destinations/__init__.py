@@ -2,3 +2,4 @@
 from .csv import CSVDestination
 from .base_destination import DataDestination
 from .bigquery import BigQueryDestination
+from .postgres import PostgresDestination
