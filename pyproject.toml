@@ -11,6 +11,8 @@ python = "^3.11"
 pyyaml = "^6.0.1"
 flask = "^3.0.3"
 google-cloud-bigquery = "^3.20.1"
+sqlalchemy = "^2.0.30"
+psycopg2-binary = "^2.9.9"
 
 
 [tool.poetry.group.dev.dependencies]
